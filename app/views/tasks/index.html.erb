@@ -1,0 +1,16 @@
+<h1>My tasks</h1>
+
+<h2>
+  <ol>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= link_to task.title, task_path(task) %> -
+         <%= link_to 'remove', destroy_task_path(task), data: { turbo_method: 'delete'} %>
+      </li>
+    <% end %>
+  </ol>
+</h2>
+
+<p>
+  <%= link_to 'Add new Task', new_task_path %>
+</p>
